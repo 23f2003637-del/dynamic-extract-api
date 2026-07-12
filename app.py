@@ -46,6 +46,8 @@ def dynamic_extract(req: Req):
 Rules:
 - Return EXACTLY these keys, no extras, no missing keys.
 - Use null for any field that cannot be found in the text.
+- For string fields, extract the value EXACTLY as it appears in the text — verbatim, same casing, same wording. Do NOT add articles (a/an/the), do NOT paraphrase, do NOT add extra words, do NOT trim words that are part of the value.
+- Copy the minimal exact phrase that answers the field — no surrounding context words unless they are part of the actual value.
 - For type "date", return ISO format YYYY-MM-DD.
 - For type "float"/"integer", return as JSON numbers, not strings.
 - For type "boolean", return true or false.
